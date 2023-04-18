@@ -1,6 +1,5 @@
 package com.wizardschool.bibliotakeary.model;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,14 +10,23 @@ public class Book {
 
     private int id;
     private String title;
-    private String content;
+    private String author;
+    private String description;
 
     public Book() {  }
 
-    public Book(int id, String title, String content) {
+    public Book(int id, String title, String author, String description) {
         this.setId(id);
         this.setTitle(title);
-        this.setContent(content);
+        this.setAuthor(author);
+        this.setDescription(description);
+    }
+
+    private void setAuthor(String author) {
+        this.author = author;
+    }
+    public String getAuthor() {
+        return author;
     }
 
     public int getId() {
@@ -37,12 +45,12 @@ public class Book {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public String getDescription() {
+        return description;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -50,7 +58,7 @@ public class Book {
         return "Blog{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
+                ", content='" + description + '\'' +
                 '}';
     }
 }
